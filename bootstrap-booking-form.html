@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+      <script src="https://kit.fontawesome.com/bfd31ea5d3.js" crossorigin="anonymous"></script>
+      <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'>
+      <script type="text/javascript" src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'></script>
+      <script type="text/Javascript" src="form-validation.js"></script>
+      <style>
+      	body {
+        	margin-left: 10px;
+        	font-family: Arial;
+        }
+        input {
+        	width: 300px;
+            margin: 5px 0px 3px 0px;
+        }
+      </style>
+    </head>
+	<body>
+        <form>
+          <div class="well well-lg">Fill out the form and click the submit button when complete...</div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="panel panel-primary">
+  			        <div class="panel-heading">User:</div>
+  			        <div class="panel-body">
+                      <div class="container">
+                        <div class="row">
+                          <label for="username">Username:</label>
+                          <input type="text" id="username" class="form-inline" placeholder="Type username..." style="margin:0px" required>
+                        </div>
+                        <div class="row">
+                          <label for="firstname">First Name:</label>
+                          <input type="text" id="firstname" class="form-inline" placeholder="Type first name..." style="margin:0px" required pattern="^[a-zA-Z]+$">
+			            </div>
+                        <div class="row">
+                          <label for="lastname">Last Name:</label>
+                          <input type="text" id="lastname" class="form-inline" placeholder="Type last name..." style="margin:0px" required pattern="^[a-zA-Z]+$">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">Contact:</div>
+                    <div class="panel-body">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-md-6">
+				            <i class="fa-solid fa-phone"></i>
+                            <input type="tel" class="form-control" id="phone#" placeholder="Type phone#..." style="width:95%" required>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <i class="fa-solid fa-fax"></i>
+                            <input type="number" class="form-control" id="fax" placeholder="Type fax#..." style="width:95%" required min="5">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" class="form-control" id="e-mail" placeholder="Type e-mail..." style="width:95%" required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">Schedule:</div>
+                    <div class="panel-body">
+                      <label for="numadults">Adults:</label>
+                      <br>
+                      <select class="form-select" style="width: 100%; height:35px">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                      </select>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <label for="check-in">Check-In:</label>
+                          <input type="date" name="check-in" id="check-in" placeholder="mm/dd/yyyy" style="width:100%" required onchange="numDays()">
+                        </div>
+                        <div class="col-md-6">
+                          <label for="check-out">Check-Out:</label>
+                          <input type="date" name="check-out" id="check-out" placeholder="mm/dd/yyyy" style="width:100%" required onchange="numDays()">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <label for="days">Days:</label>
+                          <input class="form-control" type="number" id="days" placeholder="Displays days..." style="width:100%" readonly>
+                        </div>
+                        <div class="col-md-6">
+                          <label for="cost">Cost($):</label>
+                          <input class="form-control" type="number" id="cost" placeholder="Displays cost..." style="width:100%" readonly>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="col-md-6">
+              <div class="panel panel-primary">
+                <div class="panel-heading">Other:</div>
+                <div class="panel-body">
+                  <p>Message:</p>
+                  <textarea style="width:100%; height:470px" id="message" placeholder="Type message here..." required></textarea>
+                  <label for="bootstraprange">Range:</label>
+                  <input type="range" name="bootstraprange" id="bootstraprange" style="width:100%"/>
+                  <label for="priority">Priority:</label>
+                  <br>
+                  <input type="radio" name="priority" id="low" value="low" style="width:auto" required/>
+          		  <label for="low" style="font-weight:normal">Low</label>
+          		  <input type="radio" name="priority" id="medium" value="medium" style="width:auto"/>
+          		  <label for="medium" style="font-weight:normal">Medium</label>
+          		  <input type="radio" name="priority" id="high" value="high" style="width:auto"/>
+          		  <label for="high" style="font-weight:normal">High</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <button type="submit" class="btn btn-success pull-right" style="width:200px; margin-left:20px"><i class="fa-solid fa-paper-plane"></i>&nbsp;Submit</button>
+          <button type="reset" class="btn btn-primary pull-right" style="width:200px"><i class="fa-solid fa-eraser"></i>&nbsp;Reset</button>
+        </form>
+	</body>
+</html>
